@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+# RewriteRule ExpresionRegular Destino [flags]
+RewriteRule ^([a-zA-Z0-9]*)$ index.php?game=$1
