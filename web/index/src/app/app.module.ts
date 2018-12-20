@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { ListgamesComponent } from './component/listgames/listgames.component';
 import { FooterComponent } from './component/footer/footer.component';
+<<<<<<< HEAD
 import { DetallesComponent } from './component/detalles/detalles.component';
 
 const routes: Routes = [
@@ -14,14 +15,20 @@ const routes: Routes = [
   { path: '', component: ListgamesComponent , pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
+=======
+>>>>>>> parent of 305863f... fixed
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ListgamesComponent,
+<<<<<<< HEAD
     FooterComponent,
     DetallesComponent
+=======
+    FooterComponent
+>>>>>>> parent of 305863f... fixed
   ],
   imports: [
     BrowserModule,

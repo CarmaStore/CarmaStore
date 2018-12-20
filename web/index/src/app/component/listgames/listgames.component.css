@@ -14,7 +14,16 @@
 h3{
     text-align: center;
     font-weight: bold;
+<<<<<<< HEAD
     color: black; 
+=======
+}
+
+#name{
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+>>>>>>> parent of 305863f... fixed
 }
 img{
     width: 200px;
