@@ -1,6 +1,6 @@
 <?php
-
-header('Content-Type: application/json');
+	//Da el formato de la pagina como JSON
+	header('Content-Type: application/json');
 
     //Conexion a base de datos standar
     $cnx = mysqli_connect('localhost','root','','proyecto') or die("error");
