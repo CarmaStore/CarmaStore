@@ -1,0 +1,35 @@
+.card {
+    border-radius:0;
+    margin:10px auto;
+}
+.card-title {
+    text-transform: uppercase;
+    color: #E44424;
+}
+
+.card-text {
+    margin-top:10px;
+    margin-bottom: 10px;
+    background-color:#FFFFFF;
+    color:black;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.detail{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    display: block;
+}
+.details{
+      text-align: center;
+}
+#test{
+    width: 15px;
+    height: 15px;
+}
