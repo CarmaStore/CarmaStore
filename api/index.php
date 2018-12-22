@@ -1,6 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
 
     //Conexion a base de datos standar
     $cnx = mysqli_connect('localhost','root','','proyecto') or die("error");
@@ -34,6 +35,7 @@ if(isset($_GET['game'])){
         $datos[$r['id_g']]["price"]=$r['precio'];
         $datos[$r['id_g']]["languaje"]=$r['idioma'];
         $datos[$r['id_g']]["photo"]=$r['foto_g'];
+        $datos[$r['id_g']]["category"]=$r['category'];
     }
     
 }

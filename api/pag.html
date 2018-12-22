@@ -9,13 +9,70 @@
 
 <body>
     <div class="container">
-        <div id="box"></div>
+        <div id="row"></div>
     </div>
 </body>
 
 </html>
+
+
 <script>
-    var xmlhttp = new XMLHttpRequest();
+    console.log('asd');
+    fetch("http://localhost/carma/0")
+        .then((res) => res.json())
+        .then(function(data) {
+            console.log(data);
+
+            for (let d in data) {
+                //console.log(data[d].name);
+                var row = document.getElementById("row");
+
+                var div = document.createElement('div');
+                div.className = "col s12 m6 l3";
+                row.appendChild(div);
+                console.log("Creado div col");
+
+                var a = document.createElement('a');
+                a.setAttribute('href', 'detail.php?id=' + data[d].id);
+                div.appendChild(a);
+                console.log("Creado a-href");
+
+                var divCard = document.createElement('div');
+                divCard.className = 'card';
+                divCard.setAttribute('id', 'img');
+                divCard.appendChild(a);
+                console.log("Creado div");
+
+                var divImg = document.createElement('div');
+                divCard.className = 'card-img';
+                divCard.setAttribute('id', 'gra');
+                divCard.appendChild(divImg);
+                console.log("Creado divImg");
+                
+                var img = document.createElement('img');
+                img.setAttribute('id', 'ased');
+                img.setAttribute('src', 'portadas/' + data[d].photo);
+                divImg.appendChild(img);
+
+                var h3 = document.createElement('h3');
+                h3.innerHTML = data[d].name;
+                divImg.appendChild(h3);
+
+                var divCard1 = document.createElement('div');
+                divCard1.className = 'card-action';
+                divImg.appendChild(divCard);
+
+                var h5 = document.createElement('h5');
+                h5.setAttribute('id', 'price');
+                h5.innerHTML = data[d].price;
+                divCard1.appendChild(h5);
+            }
+        });
+
+</script>
+
+<script>
+    /*  var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
@@ -38,12 +95,9 @@
     };
     xmlhttp.open("GET", "http://localhost/carma/0", true);
     xmlhttp.send();
+*/
 
-</script>
-
-
-<script>
-    var xmlhttp = new XMLHttpRequest();
+    /*  var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
@@ -69,5 +123,6 @@
     };
     xmlhttp.open("GET", "http://localhost/carma/0", true);
     xmlhttp.send();
+*/
 
 </script>
