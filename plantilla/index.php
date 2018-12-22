@@ -34,12 +34,12 @@
     <div class="container">
         <div class="row" id="row"><br>
             <!-- <div class="col s12 m6 l3">
-      <a href="detail.php">
-          <div class="card" id="img">
-              <div class="card-image" id="gr">
-                <img id="ased" src="https://www.elsotanoperdido.com/images/EntradillasExtra/PUBG_MobileEntra.jpg">
-                <h3>PUBG</h3>
-              </div>
+                  <a href="detail.php">
+                      <div class="card" id="img">
+                        <div class="card-image" id="gr">
+                        <img id="ased" src="https://www.elsotanoperdido.com/images/EntradillasExtra/PUBG_MobileEntra.jpg">
+                        <h3>PUBG</h3>
+                        </div>
               <div class="card-action">
                 <h5 id="price">$35.45</h5>
                 </div>
@@ -77,32 +77,52 @@
 
 </html>
 <script>
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var myArr = JSON.parse(this.responseText);
-            for (let data in myArr) {
-                console.log(myArr[data].name);
+    console.log('asd');
+    fetch("http://localhost/carma/0")
+        .then((res) => res.json())
+        .then(function(data) {
+            console.log(data);
+
+            for (let d in data) {
+                //console.log(data[d].name);
+                var row = document.getElementById("row");
+
                 var div = document.createElement('div');
-                document.getElementById('row').appendChild(div);
-                div.id = 'div_' + myArr[data].id;
-                div.className = 'col s12 m6 l3';
-                div.innerHTML +=
-                    `<a href="detail.php?id=` + myArr[data].id + `">
-                        <div class="card" id="img">
-                            <div class="card-image" id="gr">
-                                <img id="ased" src="portadas/` + myArr[data].photo + `">
-                                <h3>` + myArr[data].name + `</h3>
-                            </div>
-                        <div class="card-action">
-                            <h5 id="price"> S/ ` + myArr[data].price + `</h5>
-                            </div>
-                        </div>
-                    </a><br>`;
+                div.className = "col s12 m6 l3";
+                row.appendChild(div);
+
+                var a = document.createElement('a');
+                a.setAttribute('href', 'detail.php?id=' + data[d].id);
+                div.appendChild(a);
+
+                var divCard = document.createElement('div');
+                divCard.className = 'card';
+                divCard.setAttribute('id', 'img');
+                a.appendChild(divCard);
+
+                var divImg = document.createElement('div');
+                divImg.className = 'card-image';
+                divImg.setAttribute('id', 'gr');
+                divCard.appendChild(divImg);
+
+                var img = document.createElement('img');
+                img.setAttribute('id', 'ased');
+                img.setAttribute('src', 'portadas/' + data[d].photo);
+                divImg.appendChild(img);
+
+                var h3 = document.createElement('h3');
+                h3.innerHTML = data[d].name;
+                divImg.appendChild(h3);
+
+                var divCard1 = document.createElement('div');
+                divCard1.className = 'card-action';
+                divCard.appendChild(divCard1);
+
+                var h5 = document.createElement('h5');
+                h5.setAttribute('id', 'price');
+                h5.innerHTML = data[d].price;
+                divCard1.appendChild(h5);
             }
-        }
-    };
-    xmlhttp.open("GET", "http://localhost/carma/0", true);
-    xmlhttp.send();
+        });
 
 </script>
